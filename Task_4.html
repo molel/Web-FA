@@ -1,0 +1,8 @@
+<meta charset="UTF-8">
+<script>
+    let name = prompt("Введите ваше имя:")
+    let birth_year = parseInt(prompt("Введите год вашего рождения:"))
+    let today = new Date().getFullYear()
+    let age = today - birth_year
+    document.write(name + ": " + age)
+</script>

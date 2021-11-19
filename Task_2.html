@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+<script>
+    let first = prompt("Введите первое значение: ")
+    let second = prompt("Введите второе значение: ")
+    let operation = prompt("Введите операцию (+, -, * или /): ")
+    let answer
+    try {
+        switch (operation) {
+            case "+":
+                answer = parseFloat(first) + parseFloat(second)
+                break
+            case "-":
+                answer = parseFloat(first) - parseFloat(second)
+                break
+            case "*":
+                answer = parseFloat(first) * parseFloat(second)
+                break
+            case "/":
+                answer = parseFloat(first) / parseFloat(second)
+                break
+        }
+    } catch {
+        answer = "Некорректный формат ввода"
+    }
+    alert(answer)
+
+</script>
