@@ -1,0 +1,16 @@
+<meta charset="UTF-8">
+<script>
+    let surname = prompt("Введите фамилию")
+    let answer = true
+    for (let i = 0; i <= surname.length / 2; i++) {
+        if (surname[i] != surname[surname.length - 1 - i]) {
+            answer = false
+            break
+        }
+    }
+    if (answer) {
+        alert("Фамилия " + surname + " является палиндромом")
+    } else {
+        alert("Фамилия " + surname + " не является палиндромом")
+    }
+</script>

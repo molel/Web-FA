@@ -1,0 +1,22 @@
+<meta charset="UTF-8">
+<script>
+    let answers = 0
+
+    let first_answer = prompt("2 + 2 = 4?")
+    if (first_answer == "да") {
+        alert("Верно :)")
+        answers++
+    } else {
+        alert("Неверно :(")
+    }
+
+    let second_answer = prompt("2 - 2 = 0?")
+    if (second_answer == "да") {
+        alert("Верно :)")
+        answers++
+    } else {
+        alert("Неверно :(")
+    }
+
+    alert("Кол-во верных отгадок: " + answers.toString())
+</script>

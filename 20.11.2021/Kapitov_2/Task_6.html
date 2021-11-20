@@ -1,0 +1,16 @@
+<meta charset="UTF-8">
+<script>
+    let n = 10
+    for (let i = 2; i <= 10; i++) {
+        let prime = true
+        for (let j = 2; j <= Math.sqrt(i); j++) {
+            if (i % j == 0) {
+                prime = false
+                break
+            }
+        }
+        if (prime) {
+            alert(i)
+        }
+    }
+</script>
