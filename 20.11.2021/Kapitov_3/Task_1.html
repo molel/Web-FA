@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+<script>
+    let arr = []
+    for (let i = 0; i < 15; i++) {
+        arr.push(Math.round((Math.random() - 0.5) * 40 + 10))
+    }
+    alert(arr)
+    let positive = []
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+            positive.push(arr[i])
+        }
+    }
+    let sum = 0
+    for (let i = 0; i < positive.length; i++) {
+        sum += positive[i]
+    }
+    alert(sum / positive.length)
+</script>

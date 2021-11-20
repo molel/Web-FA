@@ -1,0 +1,15 @@
+<meta charset="UTF-8">
+<script>
+    let arr = []
+    for (let i = 0; i < 1000000; i++) {
+        arr.push(Math.floor((Math.random() * 3)))
+    }
+
+    let summa = 0
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == 0) {
+            summa++
+        }
+    }
+    alert(summa)
+</script>
