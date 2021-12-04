@@ -1,0 +1,74 @@
+<script>
+    function showMessage() {
+        let message = "Привет, я JavaScript!";
+        console.log(message);
+    }
+    showMessage();
+
+    function JavaScript(line) {
+        let answer = true
+        for (let i = 0; i <= line.length / 2; i++) {
+            if (line[i] != line[line.length - 1 - i]) {
+                answer = false
+                break
+            }
+        }
+        if (answer) {
+            console.log("Палиндром")
+        } else {
+            console.log("Не палиндром")
+        }
+    }
+    JavaScript(prompt("Введите строку"))
+
+    function changeNegativeElements(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < 0) {
+                arr[i] = arr[i] * arr[i]
+            }
+        }
+        console.log(arr)
+    }
+    changeNegativeElements([-1, 0, 1, -2, 3, -4])
+
+    class User {
+        constructor(username) {
+            this.username = username
+        }
+
+        printName() {
+            console.log(this.username)
+        }
+    }
+
+    let user = new User("Username")
+    user.printName()
+
+    class UserWithMessage {
+        constructor(username) {
+            this.username = username
+        }
+
+        showMessage() {
+            console.log("Привет, " + this.username)
+        }
+    }
+
+    let userWithMessage = new UserWithMessage("Username")
+    userWithMessage.showMessage()
+
+    class ReversedName {
+        constructor(name) {
+            this.name = name
+        }
+
+        printName() {
+            console.log(this.name.split("").reverse().join(""))
+        }
+    }
+
+    let reversedName = new ReversedName("Username")
+    reversedName.printName()
+
+    
+</script>

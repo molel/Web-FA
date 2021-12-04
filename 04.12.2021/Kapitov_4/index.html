@@ -1,0 +1,100 @@
+<script>
+    console.log(1)
+    function printInfo(obj) {
+        let info = ""
+        for (let key in obj) {
+            info += key + ": " + obj[key] + "\n"
+        }
+        return info
+    }
+
+    console.log(2)
+    // let user = {
+    //     name: "Джон",
+    //     age: 30
+    // };
+
+    // user.sayHi = function () {
+    //     console.log("Привет!");
+    // };
+
+    // user.sayHi();
+
+    let customer = {
+        name: "Sean",
+        age: 35,
+        balance: 100,
+        bonusCard: true,
+        address: "home"
+    }
+    console.log(3)
+    console.log(printInfo(customer))
+
+    let firstUser = {
+        name: "John",
+        balance: 100
+    }
+    let secondUser = {
+        name: "Sean",
+        balance: 0
+    }
+    let users = [firstUser, secondUser]
+
+    let firstOffer = {
+        name: "Cheese",
+        price: 15
+    }
+    let secondOffer = {
+        name: "Fish",
+        price: 25
+    }
+    let offers = [firstOffer, secondOffer]
+
+    let firstRestaurant = {
+        name: "Restaurant 1",
+        address: "Address 1"
+    }
+    let secondRestaurant = {
+        name: "Restaurant 2",
+        address: "Address 2"
+    }
+    let restaurants = [firstRestaurant, secondRestaurant]
+    console.log(4)
+
+    for (let i = 0; i < 2; i++) {
+        if (users[i].balance > 0) {
+            console.log(users[i].name)
+        }
+        if (offers[i].price < 20) {
+            console.log(offers[i].name)
+        }
+        if (restaurants[i].address == "Address 1") {
+            console.log(restaurants[i].name)
+        }
+    }
+
+    function User(name, isGroupLeader = false) {
+        this.name = name;
+        this.isGroupLeader = isGroupLeader;
+    }
+
+    let first_user = new User("Вася");
+    console.log(first_user.name);
+    console.log(first_user.isGroupLeader);
+
+    let second_user = new User("Ваня", true);
+    console.log(second_user.name);
+    console.log(second_user.isGroupLeader);
+
+    function Student(name) {
+        this.name = name;
+        this.sayHi = function () {
+            console.log("Меня зовут: " + this.name);
+        };
+    }
+    let vasya = new Student("Вася");
+    vasya.sayHi();
+
+    
+
+</script>
