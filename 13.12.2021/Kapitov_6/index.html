@@ -1,0 +1,55 @@
+<script>
+    let first = 1
+    let second = 2
+    let operation = "+"
+    let calculator = (first, second, operation) => alert(eval(first + operation + second))
+    calculator(first, second, operation)
+
+    let palindrom = (surname) => {
+        if (surname.split().reverse().join() == surname) {
+            alert("Палиндром")
+        }
+        else {
+            alert("Не палиндром")
+        }
+    }
+    palindrom("Капитов")
+
+    let puzzle = function (userAnswer, correctAnswer) {
+        if (correctAnswer == userAnswer) {
+            alert("Вы угадали")
+        } else {
+            alert("Вы не угадали")
+        }
+    }
+    puzzle(prompt("2 + 2 = 4 (да / нет)"), "да")
+
+    let average = (arr) => {
+        let sum = arr.reduce((a, b) => a + b)
+        alert(sum / arr.length)
+    }
+    average([1, 2, 3, 4, 5, 6, 7])
+
+    let dateDifference = (date1, date2) => {
+        date1 = new Date(date1)
+        date2 = new Date(date2)
+        alert(Math.ceil((date2 - date1) / 1000 / 60 / 60 / 24))
+    }
+    dateDifference("2021.12.13 23:59", "2021.12.31 13:00")
+
+    let getUndefined = () => alert(undefined)
+    getUndefined()
+
+    let sum = (arr) => alert(arr.reduce((a, b) => a + b))
+    let getEven = (arr) => alert(arr.filter(a => a % 2 == 0))
+    let mul2 = (arr) => alert(arr.map(a => a * 2))
+    let array = [1, 2, 3, 4, 5, 6]
+    sum(array)
+    getEven(array)
+    mul2(array)
+
+    let emailFilter = (arr, email) => alert(arr.filter(a => a.includes(email)))
+    emailFilter(["123456@mail.ru", "qwerty@gmail.com"], "@mail.ru")
+
+
+</script>
