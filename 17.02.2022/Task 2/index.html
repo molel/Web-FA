@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Task 2</title>
+</head>
+
+<body>
+    <div id="head_container"></div>
+    <div id="image_container"></div>
+    <div id="like_button_container"></div>
+
+    <script type="text/babel">
+        ReactDOM.render(
+            <div>
+                <h1>Good morning</h1>
+                <h2>It's Wednesday, my dudes</h2>
+            </div>,
+            document.querySelector("#head_container")
+        );
+        ReactDOM.render(
+            <div>
+                <img src="frog.jfif" width="200px"  />
+            </div>,
+            document.querySelector("#image_container")
+        );
+    </script>
+
+    <div class="like_button_container" data-name="Like" data-text="You liked this"></div>
+    <div class="like_button_container" data-name="Favourite" data-text="You added this to favourite"></div>
+    <div class="like_button_container" data-name="Share" data-text="You shared this"></div>
+    
+    <script src="like_button.js"></script>
+</body>
+
+</html>
