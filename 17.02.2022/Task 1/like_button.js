@@ -8,7 +8,7 @@ class LikeButton extends React.Component {
     }
     render() {
         if (this.state.liked) {
-            return this.props.name + ' people liked this'
+            return this.props.commentID + ' people liked this'
         }
         return e(
             "button",
@@ -19,9 +19,8 @@ class LikeButton extends React.Component {
 }
 document.querySelectorAll('.like_button_container')
     .forEach(domContainer => {
-        const name = domContainer.dataset.name;
-        const text = domContainer.dataset.text;
+        const commentID = parseInt(domContainer.dataset.commentid, 10)
         ReactDOM.render(
-            e(LikeButton, { name: name, text: text }), domContainer
+            e(LikeButton, { commentID: commentID }), domContainer
         )
     });
