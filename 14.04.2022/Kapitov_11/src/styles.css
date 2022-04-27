@@ -1,0 +1,117 @@
+body {
+  padding-top: 30px;
+  background: #fafafa;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.header {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 1% 1% 1% 10%;
+  width: 89%;
+  height: 30px;
+  background: #daf9ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 1px 4px gray;
+}
+
+.headerLabelContainer {
+  height: 100%;
+  min-width: 50%;
+  text-align: start;
+}
+
+.headerButtonContainer {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.headerButton {
+  padding: 24px;
+}
+
+.headerButton:hover {
+  color: #00acd7;
+  cursor: pointer;
+  /* box-shadow: 1px 1px 2px gray, -1px -1px 2px gray, 1px -1px 2px gray, */
+  /* -1px 1px 2px gray; */
+}
+
+.appContainer {
+  border-radius: 15px;
+  position: absolute;
+  left: 0;
+  top: 70px;
+  margin: 5% 10%;
+  width: 80%;
+  height: 70%;
+  overflow-y: auto;
+  background: white;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  border-bottom: 1px solid lightgray;
+}
+
+.articleContainer {
+  text-align: start;
+  width: 60%;
+}
+
+.articleHeader {
+  margin: 6% 12%;
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.articleText {
+  margin: 6% 3%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  text-align: justify;
+}
+
+.articleAuthor {
+  margin: 6% 9%;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-style: italic;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 4%;
+  width: 40%;
+}
+
+img {
+  border-radius: 5px;
+  width: 80%;
+}

@@ -1,0 +1,6 @@
+.shopContainer {
+  height: 93%;
+  background-color: #f1edff;
+  display: flex;
+  flex-direction: row;
+}

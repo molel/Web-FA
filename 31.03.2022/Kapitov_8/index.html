@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Формы в React</title>
+    <style>
+      html::-webkit-scrollbar {
+        width: 0;
+      }
+      body {
+        font-family: sans-serif;
+        background-color: #cfcfce;
+        text-align: start;
+      }
+      #app {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      class NameField extends React.Component {
+        constructor(props) {
+          super(props);
+          var isValid = this.validate(props.value);
+          this.state = { value: props.value, valid: isValid };
+          this.onChange = this.onChange.bind(this);
+        }
+        validate(val) {
+          return val.length > 2;
+        }
+        onChange(e) {
+          var val = e.target.value;
+          var isValid = this.validate(val);
+          this.setState({ value: val, valid: isValid });
+        }
+        render() {
+          var color = this.state.valid === true ? "lightgreen" : "red";
+          return (
+            <div
+              style={{
+                height: "100px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-end",
+                justifyContent: "center",
+                alignContent: "space-around",
+                fontFamily: "Arial",
+                fontSize: "30px",
+                marginBottom: "100px",
+              }}
+            >
+              <div>Ваше имя:</div>
+              <br />
+              <input
+                type="text"
+                value={this.state.value}
+                onChange={this.onChange}
+                style={{
+                  borderColor: color,
+                  borderRadius: "8px",
+                  width: "50%",
+                  fontSize: "20px",
+                }}
+              />
+            </div>
+          );
+        }
+      }
+      class AgeField extends React.Component {
+        constructor(props) {
+          super(props);
+          var isValid = this.validate(props.value);
+          this.state = { value: props.value, valid: isValid };
+          this.onChange = this.onChange.bind(this);
+        }
+        validate(val) {
+          return val >= 0;
+        }
+        onChange(e) {
+          var val = e.target.value;
+          var isValid = this.validate(val);
+          this.setState({ value: val, valid: isValid });
+        }
+        render() {
+          var color = this.state.valid === true ? "lightgreen" : "red";
+          return (
+            <div
+              style={{
+                height: "100px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-end",
+                justifyContent: "center",
+                alignContent: "space-around",
+                fontFamily: "Arial",
+                fontSize: "30px",
+                marginBottom: "100px",
+              }}
+            >
+              <label>Ваш возраст:</label>
+              <br />
+              <input
+                type="number"
+                value={this.state.value}
+                onChange={this.onChange}
+                style={{
+                  borderColor: color,
+                  borderRadius: "8px",
+                  width: "50%",
+                  fontSize: "20px",
+                }}
+              />
+            </div>
+          );
+        }
+      }
+      class SubjectField extends React.Component {
+        constructor(props) {
+          super(props);
+          var isValid = this.validate(props.value);
+          this.state = { value: props.value, valid: isValid };
+          this.onChange = this.onChange.bind(this);
+        }
+        validate(val) {
+          return val.length > 2;
+        }
+        onChange(e) {
+          var val = e.target.value;
+          var isValid = this.validate(val);
+          this.setState({ value: val, valid: isValid });
+        }
+        render() {
+          var color = this.state.valid === true ? "lightgreen" : "red";
+          return (
+            <div
+              style={{
+                height: "100px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-end",
+                justifyContent: "center",
+                alignContent: "space-around",
+                fontFamily: "Arial",
+                fontSize: "30px",
+                marginBottom: "100px",
+              }}
+            >
+              <label>Дисциплина:</label>
+              <br />
+              <input
+                type="text"
+                value={this.state.value}
+                onChange={this.onChange}
+                style={{
+                  borderColor: color,
+                  borderRadius: "8px",
+                  width: "50%",
+                  fontSize: "20px",
+                }}
+              />
+            </div>
+          );
+        }
+      }
+
+      class UserForm extends React.Component {
+        constructor(props) {
+          super(props);
+          this.handleSubmit = this.handleSubmit.bind(this);
+          this.nameField = React.createRef();
+          this.ageField = React.createRef();
+          this.subjectField = React.createRef();
+        }
+        handleSubmit(e) {
+          e.preventDefault();
+          var name = this.nameField.current.state.value;
+          var age = this.ageField.current.state.value;
+          var subj = this.subjectField.current.state.value;
+          if (
+            this.nameField.current.state.valid &&
+            this.ageField.current.state.valid &&
+            this.subjectField.current.state.valid
+          ) {
+            alert(
+              "Отправленные данные:\nИмя: " +
+                name +
+                "\nВозраст: " +
+                age +
+                "\nВыбранная дисциплина: " +
+                subj
+            );
+          } else {
+            alert("Некорректный ввод данных");
+          }
+        }
+
+        render() {
+          return (
+            <div>
+              <div
+                style={{
+                  position: "absolute",
+                  left: "0px",
+                  top: "0px",
+                  height: "70px",
+                  width: "100%",
+                  backgroundColor: "#24A",
+                  fontFamily: "Verdana",
+                  fontSize: "27px",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "#FFF",
+                }}
+              >
+                Портал олимпиад "Курск"
+              </div>
+              <div
+                style={{
+                  position: "absolute",
+                  left: "0px",
+                  top: "70px",
+                  width: "100%",
+                }}
+              >
+                <img src="wallpaper.jpg" style={{ width: "100%" }}></img>
+              </div>
+              <div
+                style={{
+                  margin: "2%",
+                  position: "absolute",
+                  top: "70px",
+                  right: "0px",
+                  background: "rgba(0, 0, 0, 0.7)",
+                  width: "500px",
+                  height: "800px",
+                  borderRadius: "10px",
+                  padding: "20px",
+                }}
+              >
+                <form
+                  onSubmit={this.handleSubmit}
+                  style={{
+                    color: "white",
+                  }}
+                >
+                  <NameField value="Павел" ref={this.nameField} />
+                  <AgeField value="19" ref={this.ageField} />
+                  <SubjectField value="Математика" ref={this.subjectField} />
+                  <input
+                    type="submit"
+                    value="  ✉  "
+                    style={{ fontSize: "60px" }}
+                  />
+                </form>
+              </div>
+
+              <div
+                style={{
+                  position: "absolute",
+                  left: "0px",
+                  top: "1020px",
+                  height: "50px",
+                  width: "98%",
+                  backgroundColor: "#24A",
+                  fontFamily: "Verdana",
+                  fontSize: "10px",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "start",
+                  alignItems: "center",
+                  color: "#FFF",
+                  paddingLeft: "2%",
+                }}
+              >
+                Наши контакты: +7-922-299-92-29
+              </div>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<UserForm />, document.getElementById("app"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Срочно! Акция!</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+</head>
+
+<body bgcolor="white">
+
+
+    <script type="text/babel">
+        const styleObj = {
+            color: 'red',
+            textAlign: "center",
+            fontFamily: 'Arial',
+            fontSize: 30
+        };
+        class Timer extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    seconds: 59,
+                    minutes: 26,
+                    hour: 3
+                };
+            }
+
+            tick() {
+                if (this.state.seconds == 0) {
+                    this.setState(state => ({
+                        seconds: 59,
+                        minutes: state.minutes - 1
+
+                    }))
+                } else {
+                    this.setState(state => ({
+                        seconds: state.seconds - 1
+                    }))
+                }
+                if (this.state.minutes == 0) {
+                    this.setState(state => ({
+                        hour: state.hour - 1,
+                        minutes: 59
+
+                    }))
+                }
+            }
+
+            componentDidMount() {
+                this.interval = setInterval(() => this.tick(), 1000);
+            }
+
+            componentWillUnmount() {
+                clearInterval(this.interval);
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h2>{this.state.hour}:{this.state.minutes}:{this.state.seconds}!</h2>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <div className="timer" style={styleObj}>
+
+                <Timer />
+            </div>,
+            document.getElementById('timer-example')
+        );
+    </script>
+    <script type="text/babel">
+        const styleText = {
+            color: '#003B4A',
+            textAlign: "center",
+            background: '#e1f0fe',
+
+            fontFamily: 'Arial',
+            fontSize: 35
+        };
+        ReactDOM.render(
+            <div style={styleText}>
+                <h2>РАСПРОДАЖА!</h2>
+            </div>,
+            document.getElementById("text")
+        );
+
+    </script>
+    <script type="text/babel">
+        const styleText = {
+            color: '#003B4A',
+            textAlign: "center",
+            fontFamily: 'Arial',
+            fontSize: 35
+        };
+        ReactDOM.render(
+            <div >
+                <p><center>
+                    <img src="p1.jpg" width="200px" />
+                    <img src="p2.jpg" width="200px" />
+                </center>
+                </p>
+            </div>,
+            document.getElementById("pic2")
+        );
+
+    </script>
+    <div id="text"> </div>
+    <div id="timer-example"> </div>
+    <div id="pic2"> </div>
+
+</body>
+
+</html>

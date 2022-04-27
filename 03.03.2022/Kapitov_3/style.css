@@ -1,0 +1,22 @@
+,
+            result: () => {
+                switch (prompt("Введите арифметическую операцию")) {
+                    case "+":
+                        result = this.firstNumber + this.secondNumber
+                        break
+                    case "-":
+                        result = this.firstNumber - this.secondNumber
+                        break
+                    case "*":
+                        result = this.firstNumber * this.secondNumber
+                        break
+                    case "/":
+                        result = this.firstNumber / this.secondNumber
+                        break
+                    default:
+                        result = "Вы выбрали некорректную операцию"
+                        break
+                }
+                return result
+            }
+            <div>Результат: {calculator.result()}</div>

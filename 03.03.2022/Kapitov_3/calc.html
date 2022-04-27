@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>Calculator</title>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <style>
+        .container {
+            color: 'green';
+            font-family: 'Verdana';
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .label {
+            font-size: 40px;
+        }
+    </style>
+    <script type="text/babel">
+        let calculator = {
+            firstNumber: parseInt(prompt("Введите первое число")),
+            secondNumber: parseInt(prompt("Введите второе число")),
+            calculate: (firstNumber, secondNumber) => {
+                let result
+                switch (prompt("Введите арифметическую операцию")) {
+                    case "+":
+                        result = firstNumber + secondNumber
+                        break
+                    case "-":
+                        result = firstNumber - secondNumber
+                        break
+                    case "*":
+                        result = firstNumber * secondNumber
+                        break
+                    case "/":
+                        result =  firstNumber / secondNumber
+                        break
+                    default:
+                        result = "Вы выбрали некорректную операцию"
+                        break
+                }
+                return result
+            }
+        }
+        ReactDOM.render(
+            <div className="container">
+                <div className="label">Калькулятор</div>
+                Вы ввели:
+                <div>Первое число: {calculator.firstNumber}</div>
+                <div>Второе число: {calculator.secondNumber}</div>
+                <br />
+                <div className="result">Результат: {calculator.calculate(calculator.firstNumber, calculator.secondNumber)}</div>
+            </div>
+            ,
+            document.getElementById("app")
+
+        )
+
+    </script>
+
+    <!--поместим описанный объект-->
+
+    <div class="123" id="app"> </div>
+    <div class="123" id="test"></div>
+
+</body>
+
+</html>

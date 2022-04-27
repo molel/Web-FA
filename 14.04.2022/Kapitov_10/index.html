@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Хуки</title>
+    <style>
+      ::-webkit-scrollbar {
+        width: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      function App() {
+        const [count, setCount] = React.useState(0);
+        const [age, setAge] = React.useState(19);
+        const [movie, setMovie] = React.useState("Драйв");
+        const [todos, setTodos] = React.useState([
+          { id: 1, text: "Сходить в магазин" },
+          { id: 2, text: "Сделать уроки" },
+          { id: 3, text: "Приготовить ужин" },
+        ]);
+
+        const changeMovie = () => {
+          let fruit = prompt("Введите свой любимый фильм");
+          setMovie(fruit);
+        };
+
+        const changeTODO = () => {
+          let todos2 = prompt("Введите дело");
+          setTodos([
+            ...todos,
+            {
+              id: Date.now(),
+              text: todos2,
+            },
+          ]);
+        };
+
+        const rootDivStyle = {
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          background: "#DDD",
+          borderRadius: "10px",
+        };
+
+        const subDivStyle = {
+          width: "30%",
+          minHeight: "100px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-around",
+          alignItems: "center",
+          margin: "30px",
+          padding: "20px",
+          borderRadius: "10px",
+          background: "#7FD1AE",
+        };
+
+        const labelStyle = {
+          margin: "20px",
+          fontFamily: "Verdana",
+          fontSize: "30px",
+          textAlign: "center",
+        };
+
+        const buttonContainerStyle = {
+          display: "flex",
+          flexDirection: "row",
+        };
+
+        const buttonStyle = {
+          background: "#00C6CF",
+          padding: "10px",
+          margin: "20px",
+          fontFamily: "Lucida Console",
+          fontSize: "15px",
+          fontWeight: "bold",
+          borderRadius: "5px",
+          borderWidth: "0px",
+        };
+
+        const todoStyle = {
+          fontFamily: "Verdana",
+          fontSize: "20px",
+          fontStyle: "italic",
+          textAlign: "start",
+        };
+
+        return (
+          <div style={rootDivStyle}>
+            <div style={subDivStyle}>
+              <div style={labelStyle}>Вы нажали {count} раз</div>
+              <button style={buttonStyle} onClick={() => setCount(count + 1)}>
+                Нажми меня
+              </button>
+            </div>
+            <div style={subDivStyle}>
+              <div style={labelStyle}>Возраст: {age}</div>
+              <div>
+                <button style={buttonStyle} onClick={() => setAge(age + 1)}>
+                  Увеличить возраст
+                </button>
+                <button
+                  style={buttonStyle}
+                  onClick={() => setAge(Math.max(age - 1, 0))}
+                >
+                  Уменьшить возраст
+                </button>
+              </div>
+            </div>
+            <div style={subDivStyle}>
+              <div style={labelStyle}>
+                Твой любимый фильм:
+                <br />
+                {movie}
+              </div>
+              <button style={buttonStyle} onClick={() => changeMovie()}>
+                Изменить предпочтения
+              </button>
+            </div>
+            <div style={subDivStyle}>
+              <button style={buttonStyle} onClick={() => changeTODO()}>
+                Добавить пункт в список
+              </button>
+              <div style={labelStyle}>Список дел: </div>
+              <div style={todoStyle}>
+                {todos.map((item, i) => (
+                  <div key={i}>
+                    <li>{item.text}</li>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("app")).render(<App />);
+    </script>
+  </body>
+</html>
