@@ -1,0 +1,17 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+
+.headerContainer {
+  box-sizing: border-box;
+  width: 100%;
+  height: max(6vh, 50px);
+  background-color: #9378c0;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 4vh;
+  font-weight: 600;
+  padding: 1vh 0;
+  text-align: center;
+}
